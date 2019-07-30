@@ -35,6 +35,7 @@ https://developer.android.com/guide/components/intents-filters.html
 
 https://developer.android.com/training/app-links/verify-site-associations.html
 
+https://developers.google.com/digital-asset-links/tools/generator
 
 
 # Also See
