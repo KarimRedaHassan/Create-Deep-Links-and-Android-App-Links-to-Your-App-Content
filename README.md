@@ -11,3 +11,35 @@
 
 ### Part One already discussed the first 3 points
 https://github.com/KarimRedaHassan/Android-App-Links-via-App-Links-Assistant-Part-One
+
+
+
+
+# What's Next ?
+
+#### In Case You Miss Part One
+
+Android-App-Links-via-App-Links-Assistant-Part-One
+
+https://github.com/KarimRedaHassan/Android-App-Links-via-App-Links-Assistant-Part-One
+
+# Additional Resources
+
+https://developer.android.com/studio/write/app-link-indexing
+
+https://developer.android.com/training/app-links/deep-linking.html#adding-filters
+
+https://developer.android.com/training/basics/intents/filters.html
+
+https://developer.android.com/guide/components/intents-filters.html
+
+https://developer.android.com/training/app-links/verify-site-associations.html
+
+
+
+# Also See
+
+#### A Full List Of All My Tutorials
+
+https://github.com/KarimRedaHassan?tab=repositories
+
