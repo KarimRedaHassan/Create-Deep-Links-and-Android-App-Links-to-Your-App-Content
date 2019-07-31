@@ -1,9 +1,11 @@
-# Create-Deep-Links-to-Your-App-Content
+# Create-Deep-Links-and-Android-App-Links-to-Your-App-Content
 This Tutorial will discuss how to create a deep link and prepare your app to implement the android app links feature. 
 
 ### This Tutorial discusses the following:
 1. How Android System Deals with URLs ?
-2. How to accomplish this using the App Links Assistant in Android Studio. 
+2. Create Deep Links
+3. Test Your Deep Link
+4. How to accomplish this using the App Links Assistant in Android Studio. 
 5. Dive in the details of each line of code so you could have the whole picture of what is going on.
 6. How to customize the Android App Links as per your needs.
 
@@ -110,11 +112,20 @@ https://developer.android.com/training/sharing/receive
  
 # What's Next ?
 
-#### In Case You Miss Part One
 
-Android-App-Links-via-App-Links-Assistant-Part-One
+# Android App Links Series
 
-https://github.com/KarimRedaHassan/Android-App-Links-via-App-Links-Assistant-Part-One
+Understand-The-URL
+- https://github.com/KarimRedaHassan/Understand-The-URL
+
+Deep-Links-vs-Android-App-Links
+- https://github.com/KarimRedaHassan/Deep-Links-vs-Android-App-Links
+
+Allow-Other-Apps-to-Start-Your-Activity
+- https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity
+
+Create-Deep-Links-and-Android-App-Links-to-Your-App-Content
+- https://github.com/KarimRedaHassan/Create-Deep-Links-and-Android-App-Links-to-Your-App-Content
 
 # Additional Resources
 
