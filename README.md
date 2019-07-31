@@ -28,7 +28,8 @@ In either case, Android System will deals with them similarly. Let's see how And
 As We discussed in the previous tutorial (Allow-Other-Apps-to-Start-Your-Activity), If you want your app to be accessible by other apps, You have to allow this in your manifest file by declaring \<intent-filter>. You could use any Action, Category, and Data Type which satisfies your needs.
 
 If you didn't read the **Allow-Other-Apps-to-Start-Your-Activity** tutorial yet, I recomment you to have a quick look on it now
-- https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/master/README.md#allow-other-apps-to-open-a-certain-activity-in-your-app
+
+https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/master/README.md#allow-other-apps-to-open-a-certain-activity-in-your-app
 
 #### NOTE: Android App Links is an Ownership-Verified Deep Link with some obligatory specifications
 If you are intending to use Android App Links, there are some essential declarations to be made for your deep link in the \<intent-filter> as following:
@@ -61,7 +62,8 @@ Below is a code snippet from Android Documentation to handle an incomming intent
     }
     
 If you didn't read the **Allow-Other-Apps-to-Start-Your-Activity** tutorial yet, I recomment you to have a quick look on it now
-- https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/master/README.md#allow-other-apps-to-open-a-certain-activity-in-your-app
+
+https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/master/README.md#allow-other-apps-to-open-a-certain-activity-in-your-app
 
 
 ### Step Three: Test URL Deep Link
