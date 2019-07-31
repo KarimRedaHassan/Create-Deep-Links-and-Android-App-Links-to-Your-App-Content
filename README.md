@@ -42,6 +42,8 @@ Below is the minimum requirements in the \<intent-filter> which must be declared
 ### Step Two: Read From Incoming Intent 
 Prepare your activity to receive the intent data as we discuss in the previous tutorial (Allow-Other-Apps-to-Start-Your-Activity),
 
+Below is a code snippet from Android Documentation to handle an incomming intent. In normal cases, we don't write this code only, we have to do some checks and directions to the code.
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,54 @@ Prepare your activity to receive the intent data as we discuss in the previous t
         Uri data = intent.getData();
     }
     
+Here is a code snippet for an activity allowing more than one Action, This snippet has been taken from Android Documentation
+
+https://developer.android.com/training/sharing/receive
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        ...
+        // Get intent, action and MIME type
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                handleSendText(intent); // Handle text being sent
+            } else if (type.startsWith("image/")) {
+                handleSendImage(intent); // Handle single image being sent
+            }
+        } else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
+            if (type.startsWith("image/")) {
+                handleSendMultipleImages(intent); // Handle multiple images being sent
+            }
+        } else {
+            // Handle other intents, such as being started from the home screen
+        }
+        ...
+    }
+
+    private void handleSendText(Intent intent) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            // Update UI to reflect text being shared
+        }
+    }
+
+    private void handleSendImage(Intent intent) {
+        Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+        if (imageUri != null) {
+            // Update UI to reflect image being shared
+        }
+    }
+
+    private void handleSendMultipleImages(Intent intent) {
+        ArrayList<Uri> imageUris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+        if (imageUris != null) {
+            // Update UI to reflect multiple images being shared
+        }
+    }
  ### Step Three: Test URL Deep Link
  
  
