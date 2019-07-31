@@ -23,7 +23,10 @@ In either case, Android System will deals with them similarly. Let's see how And
 
 # Create Deep Links ?
 ### Step One: Add Intent Filters from Incoming Intents
-As We discussed in the previous tutorial (Allow-Other-Apps-to-Start-Your-Activity), If you want your app to be accessible by other apps, You have to allow this in your manifest file by declaring \<intent-filter> . But there are some essential declarations to be made in your \<intent-filter> as following:
+As We discussed in the previous tutorial (Allow-Other-Apps-to-Start-Your-Activity), If you want your app to be accessible by other apps, You have to allow this in your manifest file by declaring \<intent-filter>. You could use any Action, Category, and Data Type which satisfies your needs.
+
+#### NOTE: Android App Links is an Ownership-Verified Deep Link with some obligatory specifications
+If you are intending to use Android App Links, there are some essential declarations to be made for your deep link in the \<intent-filter> as following:
 1. Declare ACTION_VIEW, So your app could be accessible from Google Search.
 2. Declare BROWSABLE category, So your app could be accessible from a web browser.
 3. At Least Declare one <data> tag which must include the android:scheme.
