@@ -27,6 +27,9 @@ In either case, Android System will deals with them similarly. Let's see how And
 ### Step One: Add Intent Filters from Incoming Intents
 As We discussed in the previous tutorial (Allow-Other-Apps-to-Start-Your-Activity), If you want your app to be accessible by other apps, You have to allow this in your manifest file by declaring \<intent-filter>. You could use any Action, Category, and Data Type which satisfies your needs.
 
+If you didn't read the **Allow-Other-Apps-to-Start-Your-Activity** tutorial yet, I recomment you to have a quick look on it now
+- https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/master/README.md#allow-other-apps-to-open-a-certain-activity-in-your-app
+
 #### NOTE: Android App Links is an Ownership-Verified Deep Link with some obligatory specifications
 If you are intending to use Android App Links, there are some essential declarations to be made for your deep link in the \<intent-filter> as following:
 1. Declare ACTION_VIEW, So your app could be accessible from Google Search.
@@ -41,8 +44,6 @@ Below is the minimum requirements in the \<intent-filter> which must be declared
             <category android:name="android.intent.category.BROWSABLE" />
             <data android:scheme="http" />
         </intent-filter>
-
-#### Important Notes:
 
 ### Step Two: Read From Incoming Intent 
 Prepare your activity to receive the intent data as we discuss in the previous tutorial (Allow-Other-Apps-to-Start-Your-Activity),
@@ -59,55 +60,11 @@ Below is a code snippet from Android Documentation to handle an incomming intent
         Uri data = intent.getData();
     }
     
-Here is a code snippet for an activity allowing more than one Action, This snippet has been taken from Android Documentation
+If you didn't read the **Allow-Other-Apps-to-Start-Your-Activity** tutorial yet, I recomment you to have a quick look on it now
+- https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/master/README.md#allow-other-apps-to-open-a-certain-activity-in-your-app
 
-https://developer.android.com/training/sharing/receive
-    
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        ...
-        // Get intent, action and MIME type
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        String type = intent.getType();
 
-        if (Intent.ACTION_SEND.equals(action) && type != null) {
-            if ("text/plain".equals(type)) {
-                handleSendText(intent); // Handle text being sent
-            } else if (type.startsWith("image/")) {
-                handleSendImage(intent); // Handle single image being sent
-            }
-        } else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
-            if (type.startsWith("image/")) {
-                handleSendMultipleImages(intent); // Handle multiple images being sent
-            }
-        } else {
-            // Handle other intents, such as being started from the home screen
-        }
-        ...
-    }
-
-    private void handleSendText(Intent intent) {
-        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
-        if (sharedText != null) {
-            // Update UI to reflect text being shared
-        }
-    }
-
-    private void handleSendImage(Intent intent) {
-        Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
-        if (imageUri != null) {
-            // Update UI to reflect image being shared
-        }
-    }
-
-    private void handleSendMultipleImages(Intent intent) {
-        ArrayList<Uri> imageUris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-        if (imageUris != null) {
-            // Update UI to reflect multiple images being shared
-        }
-    }
- ### Step Three: Test URL Deep Link
+### Step Three: Test URL Deep Link
  
  
 # What's Next ?
