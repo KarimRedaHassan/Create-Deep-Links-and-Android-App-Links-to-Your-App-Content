@@ -67,18 +67,35 @@ If you didn't read the **Allow-Other-Apps-to-Start-Your-Activity** tutorial yet,
 https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/master/README.md#allow-other-apps-to-open-a-certain-activity-in-your-app
 
 
-### Step Three: Test URL Deep Link
+### Step Three: Test your Deep Link
+After you do the previous two steps, you have to test your work to see if it acts as you intended or not. Android Debug Bridge adb is oferring an easy way to test your deep links. Simply, use the below coommand to test if any activity could resolve the intent.
 
-Use the following coommand to try if any activity could resolve the intent
-
-        $ adb shell am start
+        adb shell am start
         -W -a android.intent.action.VIEW
         -d <URI> <PACKAGE>
         
+#### If you are asking how could I use this command or where, We will talk about it in deep details
+First, to use the adb, the easiest way is to use the terminal tab in your android studio. You will find it in the bottom bar which contains "Version Control, Logcat, TODO, Terminal, Build, Profiler, Run".
+
+Second, to start communicating with the adb, You have to define its path in your local disk. Normally, you will find your adb in this path sdk/platform-tools/adb. For Example, here is my path
+
+        /Volumes/HDD/Android/sdk/platform-tools/adb 
         
+Third, here is a quick hint about the adb commands,
+- "am" refers to Activity Manager
+- "start" is used to start Activity specified by the following intent parameters.
+- "-W" is used to tell the shell to wait for launch to complete
+- "-a" is used to define the action 
+- "-d" is used to define the data URL
+- after the data URL, specify the package that you need to test on.
+
+So, in other words, your are using the android debug bridge "adb" to tell the Activity manager "am" to start an Activity "start" and wait for the launch to complete "-W" and use these parameters to the calling intent (action "-a", data URL "-d").
+
+Here is my complete adb command
+
         /Volumes/HDD/Android/sdk/platform-tools/adb shell am start -W -a android.intent.action.VIEW -d https://www.smarkiz.com com.smarkiz.baseproject
   
-You will see the following response
+You will have the following response
 
         Starting: Intent { act=android.intent.action.VIEW dat=https://www.smarkiz.com pkg=com.smarkiz.baseproject }
   
@@ -95,9 +112,23 @@ If The activity could resolve your Intent, You will receive the following:
         WaitTime: 271
         Complete
 
-For All Available adb commands, Please refer to this link
+For All Available adb commands, Please refer to the Android Documentations below
 
-http://adbshell.com/commands
+https://developer.android.com/studio/command-line/adb.html#am
+
+
+# Create Android App Link
+You could follow the exact same steps mentioned in the previous section and considered the obligatory declarations to create a valid Deep Link which could be upgraded to an Android App Link. 
+
+#### OR You could easily use the App Links Assistant.
+
+### Step One: Tools > App Links Assistant > Open URL Mapping Editor > press the (+) button > Fill required details > OK. 
+Now you have created a valid Deep Link and magically added the necessary \<intent-filter> to your manifest file.
+
+### Step Two: In the Check URL Mapping box, Write your URL to test it and make sure its working as intended.
+If this is a valid URL, you will have the following response "This URL maps to your.activity.name".
+
+### Step Three: Verify your ownership to this host to upgrade the Deep Link to Android App Link
 
 # What's Next ?
 
