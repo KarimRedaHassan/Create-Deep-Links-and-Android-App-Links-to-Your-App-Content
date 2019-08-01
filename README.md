@@ -122,10 +122,20 @@ You could follow the exact same steps mentioned in the previous section and cons
 
 #### OR You could easily use the App Links Assistant.
 
-### Step One: Tools > App Links Assistant > Open URL Mapping Editor > press the (+) button > Fill required details > OK. 
+### Step One: Add intent filters
+Tools > App Links Assistant > Open URL Mapping Editor > press the (+) button > Fill required details > OK.
 Now you have created a valid Deep Link and magically added the necessary \<intent-filter> to your manifest file.
 
-### Step Two: In the Check URL Mapping box, Write your URL to test it and make sure its working as intended.
+### Step Two: Handle incoming links
+
+
+
+### Step Three: Associate your app with your website
+
+
+
+### Step Four: Test your App Links
+In the Check URL Mapping box, Write your URL to test it and make sure its working as intended.
 If this is a valid URL, you will have the following response "This URL maps to your.activity.name".
 
 ### Step Three: Verify your ownership to this host to upgrade the Deep Link to Android App Link
