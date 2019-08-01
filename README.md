@@ -35,6 +35,7 @@ https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/
 If you are intending to use Android App Links, there are some essential declarations to be made for your deep link in the \<intent-filter> as following:
 1. Declare ACTION_VIEW, So your app could be accessible from Google Search.
 2. Declare BROWSABLE category, So your app could be accessible from a web browser.
+2. Declare DEFAULT category, So your app could be accessible Implicit Intents.
 3. At Least Declare one <data> tag which must include the android:scheme.
 
 Below is the minimum requirements in the \<intent-filter> which must be declared for a Deep Link. In Normal Scenarios, You at least specify the android:host or your app will respond for all URLs starts with http scheme
@@ -68,7 +69,60 @@ https://github.com/KarimRedaHassan/Allow-Other-Apps-to-Start-Your-Activity/blob/
 
 ### Step Three: Test URL Deep Link
  
- 
+ <INTENT> specifications include these flags and arguments:
+    [-a <ACTION>] [-d <DATA_URI>] [-t <MIME_TYPE>]
+    [-c <CATEGORY> [-c <CATEGORY>] ...]
+    [-e|--es <EXTRA_KEY> <EXTRA_STRING_VALUE> ...]
+    [--esn <EXTRA_KEY> ...]
+    [--ez <EXTRA_KEY> <EXTRA_BOOLEAN_VALUE> ...]
+    [--ei <EXTRA_KEY> <EXTRA_INT_VALUE> ...]
+    [--el <EXTRA_KEY> <EXTRA_LONG_VALUE> ...]
+    [--ef <EXTRA_KEY> <EXTRA_FLOAT_VALUE> ...]
+    [--eu <EXTRA_KEY> <EXTRA_URI_VALUE> ...]
+    [--ecn <EXTRA_KEY> <EXTRA_COMPONENT_NAME_VALUE>]
+    [--eia <EXTRA_KEY> <EXTRA_INT_VALUE>[,<EXTRA_INT_VALUE...]]
+    [--ela <EXTRA_KEY> <EXTRA_LONG_VALUE>[,<EXTRA_LONG_VALUE...]]
+    [--efa <EXTRA_KEY> <EXTRA_FLOAT_VALUE>[,<EXTRA_FLOAT_VALUE...]]
+    [--esa <EXTRA_KEY> <EXTRA_STRING_VALUE>[,<EXTRA_STRING_VALUE...]]
+        (to embed a comma into a string escape it using "\,")
+    [-n <COMPONENT>] [-p <PACKAGE>] [-f <FLAGS>]
+    [--grant-read-uri-permission] [--grant-write-uri-permission]
+    [--grant-persistable-uri-permission] [--grant-prefix-uri-permission]
+    [--debug-log-resolution] [--exclude-stopped-packages]
+    [--include-stopped-packages]
+    [--activity-brought-to-front] [--activity-clear-top]
+    [--activity-clear-when-task-reset] [--activity-exclude-from-recents]
+    [--activity-launched-from-history] [--activity-multiple-task]
+    [--activity-no-animation] [--activity-no-history]
+    [--activity-no-user-action] [--activity-previous-is-top]
+    [--activity-reorder-to-front] [--activity-reset-task-if-needed]
+    [--activity-single-top] [--activity-clear-task]
+    [--activity-task-on-home]
+    [--receiver-registered-only] [--receiver-replace-pending]
+    [--selector]
+    [<URI> | <PACKAGE> | <COMPONENT>]
+
+Use the following coommand to try if any activity could resolve the intent
+
+        /Volumes/HDD/Android/sdk/platform-tools/adb shell am start -W -a android.intent.action.VIEW -d https://www.smarkiz.com com.smarkiz.baseproject
+  
+You will see the following response
+
+        Starting: Intent { act=android.intent.action.VIEW dat=https://www.smarkiz.com pkg=com.smarkiz.baseproject }
+  
+If the activity failed to resolve your Intent, You will receive the following:
+
+        Error: Activity not started, unable to resolve Intent { act=android.intent.action.VIEW dat=https://www.smarkiz.com flg=0x10000000 pkg=com.smarkiz.baseproject }
+
+If The activity could resolve your Intent, You will receive the following:
+
+        Status: ok
+        Activity: com.smarkiz.baseproject/.ui.settings.SettingsActivity
+        ThisTime: 220
+        TotalTime: 246
+        WaitTime: 271
+        Complete
+
 # What's Next ?
 
 
