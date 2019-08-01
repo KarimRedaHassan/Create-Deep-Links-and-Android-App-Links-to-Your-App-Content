@@ -117,28 +117,39 @@ For All Available adb commands, Please refer to the Android Documentations below
 https://developer.android.com/studio/command-line/adb.html#am
 
 
-# Create Android App Link
+# Create Android App Link using App Links Assistant
 You could follow the exact same steps mentioned in the previous section and considered the obligatory declarations to create a valid Deep Link which could be upgraded to an Android App Link. 
 
 #### OR You could easily use the App Links Assistant.
 
 ### Step One: Add intent filters
-Tools > App Links Assistant > Open URL Mapping Editor > press the (+) button > Fill required details > OK.
+#### Tools > App Links Assistant > Open URL Mapping Editor > press the (+) button > Fill required details > OK.
 Now you have created a valid Deep Link and magically added the necessary \<intent-filter> to your manifest file.
 
 ### Step Two: Handle incoming links
+#### Tools > App Links Assistant > Select Activity > Choose The Activity associated with the Deep Link > OK.
+Now you have inserted a template code to your activity to handle the incoming intent. You should start modify this code to match your needs
 
+        // ATTENTION: This was auto-generated to handle app links.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
 
-
-### Step Three: Associate your app with your website
-
-
-
-### Step Four: Test your App Links
-In the Check URL Mapping box, Write your URL to test it and make sure its working as intended.
-If this is a valid URL, you will have the following response "This URL maps to your.activity.name".
 
 ### Step Three: Verify your ownership to this host to upgrade the Deep Link to Android App Link
+#### Tools > App Links Assistant > Open Digital Asset Links File Generator > Fill required details > Generate Digital Asset Links File
+Now you have created the required json file to attach your app with your website. Simply, copy the generated json text into a file and upload it to this exact destination at your website. This file will help Google to verify that you are the owner of this website
+
+        https://www.your.domain/.well-known/assetlinks.json
+
+### Step Four: Enable link handling verification for your app
+#### Tools > App Links Assistant > Open Digital Asset Links File Generator > Link And Verify
+Now You have added a single line to your manifest file which is android:autoVerify="true". This will enable link handling verification for your app. This should be added to every \<intent-filter> in your manifest file which intended to handle an Android App Link.
+
+### Step Five: Test your App Links
+#### Tools > App Links Assistant > Test App Links
+Now you should test your work and check if the Android App Link is working fine as intended by providing the URL and click "Run Test". The Response will indicate either if this URL maps to any activity or not.
+
 
 # What's Next ?
 
