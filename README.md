@@ -95,6 +95,10 @@ If The activity could resolve your Intent, You will receive the following:
         WaitTime: 271
         Complete
 
+For All Available adb commands, Please refer to this link
+
+http://adbshell.com/commands
+
 # What's Next ?
 
 
@@ -113,6 +117,8 @@ Create-Deep-Links-and-Android-App-Links-to-Your-App-Content
 - https://github.com/KarimRedaHassan/Create-Deep-Links-and-Android-App-Links-to-Your-App-Content
 
 # Additional Resources
+
+http://adbshell.com/commands
 
 https://developer.android.com/studio/write/app-link-indexing
 
