@@ -24,7 +24,7 @@ In either case, Android System will deals with them similarly. Let's see how And
 3. Third Step: if there is no preferred app and there are more than One App could handle this URL, Android System will show a dialog containing all apps that could handle this URL.
 
 # Create Deep Links ?
-### Step One: Add Intent Filters from Incoming Intents
+### Step One: Add Intent Filters for Incoming Intents
 As We discussed in the previous tutorial (Allow-Other-Apps-to-Start-Your-Activity), If you want your app to be accessible by other apps, You have to allow this in your manifest file by declaring \<intent-filter>. You could use any Action, Category, and Data Type which satisfies your needs.
 
 If you didn't read the **Allow-Other-Apps-to-Start-Your-Activity** tutorial yet, I recomment you to have a quick look on it now
